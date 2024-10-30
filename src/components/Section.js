@@ -34,7 +34,7 @@ function Section({data}) {
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
 
   return (
-    <motion.div style={{backgroundImage}}  className='min-h-screen h-full py-8 px-4 md:px-8'>
+    <motion.div style={{backgroundImage}}  className='min-h-screen h-full py-8 px-4 md:px-5'>
     <div className="flex items-center justify-between ">
         <h1 className='text-xl md:text-4xl text-white font-semibold'>{data[0]?.heading}</h1>
         <h1 className='text-lg md:text-4xl text-white font-semibold animate-bounce'>SALE SALE SALE</h1>
