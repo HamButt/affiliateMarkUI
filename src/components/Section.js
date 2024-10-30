@@ -40,7 +40,7 @@ function Section({data}) {
         </div>
         <section className='flex mt-8 flex-wrap justify-center items-start' >
             <div className="images-section flex flex-wrap items-center justify-start h-full w-[600px] mt-2">
-                {   !data[0]?.images?.length > 0 ?
+                {   data[0]?.images?.length > 0 ?
                     data[0]?.images?.map((img) => <Image src={img} imageClassName="p-[2px] rounded-lg w-[200px]"  alt="Image" preview />)
                     :
                     <div className='text-white' >
