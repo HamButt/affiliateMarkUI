@@ -43,8 +43,9 @@ function Section({data}) {
                 {   data[0]?.images?.length > 0 ?
                     data[0]?.images?.map((img) => <Image src={img} imageClassName="p-[2px] rounded-lg w-[200px]"  alt="Image" preview />)
                     :
-                    <div className='text-white' >
+                    <div className='text-white flex items-center ' >
                         <p className='loading loading-lg mx-auto' ></p>
+                        <span className='ms-2 text-lg' >Loading product...</span>
                     </div>
                 }
 
