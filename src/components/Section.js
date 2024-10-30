@@ -34,15 +34,16 @@ function Section({data}) {
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
 
   return (
+
     <motion.div style={{backgroundImage}}  className='min-h-screen h-full py-8 px-4 md:px-5'>
-    <div className="flex items-center justify-between ">
-        <h1 className='text-xl md:text-4xl text-white font-semibold'>{data[0]?.heading}</h1>
-        <h1 className='text-lg md:text-4xl text-white font-semibold animate-bounce'>SALE SALE SALE</h1>
-    </div>
+        <div className="flex items-center justify-between">
+            <h1 className='text-xl md:text-4xl text-white font-semibold'>{data[0]?.heading}</h1>
+            <h1 className='text-lg md:text-4xl text-white font-semibold animate-bounce'>SALE SALE SALE</h1>
+        </div>
         <section className='flex mt-8 flex-wrap justify-center items-start' >
             <div className="images-section flex flex-wrap items-center justify-start h-full w-[600px] mt-2">
                 {
-                    data[0]?.images?.map((img) => <Image src={img} imageClassName="p-[2px] rounded-lg  w-[200px]"  alt="Image" preview />)
+                    data[0]?.images?.map((img) => <Image src={img} imageClassName="p-[2px] rounded-lg w-[200px]"  alt="Image" preview />)
                 }
 
             </div>
@@ -54,10 +55,7 @@ function Section({data}) {
                 <h1 className='text-lg md:text-2xl text-white dark:text-white mt-2'>Description:</h1>
                 <p className='text-sm md:text-lg text-white dark:text-white  mt-2' >{data[0]?.description}</p>
                 <Link to={data[0]?.link} target='_blank'>
-                <motion.button
-                    style={{ border, boxShadow}}
-                    whileHover={{scale: 1.015 }}
-                    whileTap={{ scale: 0.985 }}
+                <motion.button style={{ border, boxShadow}} whileHover={{scale: 1.015 }} whileTap={{ scale: 0.985 }}
                     className="group relative flex w-56  items-center justify-center text-lg gap-1.5 rounded-md bg-gray-950/10 px-4 py-2 text-white dark:text-white mt-6 transition-colors hover:bg-gray-950/50">
                     Buy now
                     <FiArrowRight className="transition-transform group-hover:-rotate-45 group-active:-rotate-12" />
