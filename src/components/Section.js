@@ -39,9 +39,9 @@ function Section({data}) {
             <h1 className='text-lg md:text-4xl text-white font-semibold animate-bounce'>BIG SALE</h1>
         </div>
         <section className='flex mt-8 flex-wrap justify-center items-start' >
-            <div className="images-section flex flex-wrap items-center justify-start h-full w-[600px] mt-2">
+            <div className="images-section flex flex-wrap items-center justify-center sm:justify-start h-full w-[600px] mt-2">
                 {   data[0]?.images?.length > 0 ?
-                    data[0]?.images?.map((img) => <Image src={img} imageClassName="p-[2px] rounded-lg w-[200px]"  alt="Image" preview />)
+                    data[0]?.images?.map((img) => <Image src={img} imageClassName="p-[2px] rounded-lg w-[100px] sm:w-[200px]"  alt="Image" preview />)
                     :
                     <div className='text-white flex items-center ' >
                         <p className='loading loading-lg mx-auto' ></p>
