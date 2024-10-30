@@ -36,7 +36,7 @@ function Section({data}) {
     <motion.div style={{backgroundImage}}  className='min-h-screen h-full py-8 px-4 md:px-5'>
         <div className="flex items-center justify-between">
             <h1 className='text-xl md:text-4xl text-white font-semibold'>{data[0]?.heading}</h1>
-            <h1 className='text-lg md:text-4xl text-white font-semibold animate-bounce'>SALE SALE SALE</h1>
+            <h1 className='text-lg md:text-4xl text-white font-semibold animate-bounce'>BIG SALE</h1>
         </div>
         <section className='flex mt-8 flex-wrap justify-center items-start' >
             <div className="images-section flex flex-wrap items-center justify-start h-full w-[600px] mt-2">
