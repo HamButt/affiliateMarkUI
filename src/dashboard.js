@@ -14,13 +14,12 @@ const [count, setCount] = useState(null)
         try {
           
           const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/user`)
-        //   console.log(res?.data?.user[0]?.recentUserReachedAt, res?.data?.user[0]?.totalUsers);
-          
             const date = new Date(res?.data?.user[0]?.recentUserReachedAt);
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
             const userRachedDate = date.toLocaleTimeString('en-US', options);
             setDate(userRachedDate)
             setCount(res?.data?.user[0]?.totalUsers)
+            
         } catch (error) {
           console.log(error);
           
