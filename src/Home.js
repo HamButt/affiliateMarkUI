@@ -1,8 +1,9 @@
 import './App.css';
 import { Helmet } from 'react-helmet';
-import React  from 'react'
+import React, { useEffect } from 'react'
 import Section from './components/Section';
 import { bagImages, feederImages, feeder2Images, jacketImages, pajamaImages} from './components/images'
+import axios from 'axios'
 
 const bagData = [
   {
@@ -74,7 +75,23 @@ const pajamaData = [
 
 
 function App() {
-   
+
+  useEffect(()=>{
+    updateUser()
+  }, [])
+
+
+  const updateUser = async () => {
+    try {
+      
+      const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/increment`)
+        console.log(res);
+    } catch (error) {
+      console.log(error);
+      
+    }
+      
+  }
 
   return (
     <div className="App">
