@@ -26,7 +26,11 @@ function Section({data}) {
                   return (
                   <div key={d.id} className="sm:w-[310px] mt-3 rounded overflow-hidden shadow-lg bg-white dark:bg-white transform transition-transform duration-300">
                         
-                        <Image src={d.src} imageClassName="rounded-t w-full"  alt="Image" preview />
+                        {d.src ? <Image src={d.src} imageClassName="rounded-t w-full"  alt="Image" preview /> : 
+                        <div className='w-full text-center flex items-center justify-center py-20' >
+                          <span className='loading loading-md' ></span>
+                        </div>
+                        }
                         <div className="px-3 py-2">
 
                         <h3 className="text-md font-semibold text-black dark:text-black line-clamp-1 ">{d?.heading}</h3>
