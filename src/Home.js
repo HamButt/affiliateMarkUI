@@ -165,7 +165,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App bg-white dark:bg-white">
     
     <Helmet>
         <title>Affiliate Products</title>
