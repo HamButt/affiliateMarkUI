@@ -25,31 +25,29 @@ function Section({data}) {
               data?.map((d) => {
                   return (
                   <div key={d.id} className="sm:w-[310px] mt-3 rounded overflow-hidden shadow-lg bg-white dark:bg-white transform transition-transform duration-300">
-                  <Image src={d.src} imageClassName="rounded-t w-full"  alt="Image" preview />
-                        {/* {d.src ? : 
+                  
+                        {d.src ? <Image src={d.src} imageClassName="rounded-t w-full"  alt="Image" preview /> : 
                         <div className='w-full text-center flex items-center justify-center py-20' >
                           <span className='loading loading-md' ></span>
                         </div>
-                        } */}
+                        }
                         <div className="px-3 py-2">
 
-                        <h3 className="text-md font-semibold text-black dark:text-black line-clamp-1 ">{d?.heading}</h3>
-                        <p className="text-black dark:text-black text-sm mt-2 line-clamp-2 font-semibold">{d?.description}</p>
-                        <p className="text-sm mt-2 font-bold text-black dark:text-black">{d?.sale}</p>
-                        <p className="text-sm mt-2 font-bold text-black dark:text-black">{d?.deliveryCharges}</p>
-                        <div className="flex items-center justify-between mt-2">
-                            <p className="text-sm font-bold text-black dark:text-black">Price: PKR {d?.price}</p>
-                            <Link to={d.link} className="font-semibold text-center text-sm bg-black text-white rounded transition duration-200 p-2 w-28">
-                            Buy Now 
-                          </Link>
-                        </div>
+                          <h3 className="text-md font-semibold text-black dark:text-black line-clamp-1 ">{d?.heading}</h3>
+                          <p className="text-black dark:text-black text-sm mt-2 line-clamp-2 font-semibold">{d?.description}</p>
+                          <p className="text-sm mt-2 font-bold text-black dark:text-black">{d?.sale}</p>
+                          <p className="text-sm mt-2 font-bold text-black dark:text-black">{d?.deliveryCharges}</p>
+                          <div className="flex items-center justify-between mt-2">
+                              <p className="text-sm font-bold text-black dark:text-black">Price: PKR {d?.price}</p>
+                              <Link to={d.link} className="font-semibold text-center text-sm bg-black text-white rounded transition duration-200 p-2 w-28">
+                              Buy Now 
+                            </Link>
+                          </div>
                         </div>
                       </div>
                   )
               })      
             }
-            
-          
         </section>
         <div className="separator relative mt-5 " >
             <div className="absolute inset-0 flex items-center " >
