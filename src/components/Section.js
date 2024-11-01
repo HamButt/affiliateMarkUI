@@ -1,71 +1,60 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import { Image } from 'primereact/image';
-import { FiArrowRight } from "react-icons/fi";
 import {Link} from 'react-router-dom'
 
-import {
-  useMotionTemplate,
-  useMotionValue,
-  motion,
-  animate,
-} from "framer-motion";
+import { motion } from "framer-motion";
 
-const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
 
 function Section({data}) {
 
-    const color = useMotionValue(COLORS_TOP[0]);
 
-  useEffect(() => {
-    animate(color, COLORS_TOP, {
-      ease: "easeInOut",
-      duration: 10,
-      repeat: Infinity,
-      repeatType: "mirror",
-    });
-  }, [color]);
-
-  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
-  const border = useMotionTemplate`1px solid ${color}`;
-  const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
 
   return (
 
-    <motion.div style={{backgroundImage}}  className='min-h-screen h-full py-8 px-4 md:px-5'>
+    <motion.div  className='min-h-screen h-full py-8 px-4 md:px-5'>
         <div className="flex items-center justify-between">
-            <h1 className='text-xl md:text-4xl text-white font-semibold'>{data[0]?.heading}</h1>
-            <h1 className='text-lg md:text-4xl text-white font-semibold animate-bounce'>BIG SALE</h1>
+            <h1 className='text-xl md:text-4xl text-black font-semibold'>Baby products</h1>
+            <h1 className='text-lg md:text-4xl text-black font-semibold'>BIG SALE  <sup >60% OFF</sup></h1>
         </div>
-        <section className='flex mt-8 flex-wrap justify-center items-start' >
-            <div className="images-section flex flex-wrap items-center justify-center sm:justify-start h-full w-[600px] mt-2">
-                {   data[0]?.images?.length > 0 ?
-                    data[0]?.images?.map((img) => <Image src={img} imageClassName="p-[2px] rounded-lg w-[100px] sm:w-[200px]"  alt="Image" preview />)
-                    :
-                    <div className='text-white flex items-center ' >
-                        <p className='loading loading-lg mx-auto' ></p>
-                        <span className='ms-2 text-lg' >Loading product...</span>
-                    </div>
-                }
+        
+        <section className='flex flex-wrap justify-center sm:justify-between mt-5' >
 
-            </div>
-            <div className="description px-6 text-start w-[620px] mt-2">
-                <h1 className='text-lg md:text-2xl text-white dark:text-white'>Details:</h1>
-                <p className='text-sm md:text-lg text-white dark:text-white mt-2'>Deliver charges: {data[0]?.deliveryCharges}</p>
-                <p className='text-sm md:text-lg text-white dark:text-white '>Price: PKR {data[0]?.price}</p>
-                <p className='text-sm md:text-lg text-white dark:text-white'>Sale: {data[0]?.sale}</p>
-                <h1 className='text-lg md:text-2xl text-white dark:text-white mt-2'>Description:</h1>
-                <p className='text-sm md:text-lg text-white dark:text-white  mt-2' >{data[0]?.description}</p>
-                <Link to={data[0]?.link} target='_blank'>
-                <motion.button style={{ border, boxShadow}} whileHover={{scale: 1.015 }} whileTap={{ scale: 0.985 }}
-                    className="group relative flex w-56  items-center justify-center text-lg gap-1.5 rounded-md bg-gray-950/10 px-4 py-2 text-white dark:text-white mt-6 transition-colors hover:bg-gray-950/50">
-                    Buy now
-                    <FiArrowRight className="transition-transform group-hover:-rotate-45 group-active:-rotate-12" />
-                </motion.button>
-                </Link>
-            </div>
+            {     
+              data?.map((d) => {
+                  return (
+                  <div key={d.id} className="sm:w-[310px] mt-3 rounded overflow-hidden shadow-lg bg-white dark:bg-white transform transition-transform duration-300">
+                        
+                        <Image src={d.src} imageClassName="rounded-t w-full"  alt="Image" preview />
+                        <div className="px-3 py-2">
+
+                        <h3 className="text-md font-semibold text-black dark:text-black line-clamp-1 ">{d?.heading}</h3>
+                        <p className="text-black dark:text-black text-sm mt-2 line-clamp-2 font-semibold">{d?.description}</p>
+                        <p className="text-sm mt-2 font-bold text-black dark:text-black">{d?.sale}</p>
+                        <p className="text-sm mt-2 font-bold text-black dark:text-black">{d?.deliveryCharges}</p>
+                        <div className="flex items-center justify-between mt-2">
+                            <p className="text-sm font-bold text-black dark:text-black">Price: PKR {d?.price}</p>
+                            <Link to={d.link} className="font-semibold text-center text-sm bg-black text-white rounded transition duration-200 p-2 w-28">
+                            Buy Now 
+                          </Link>
+                        </div>
+                        </div>
+                      </div>
+                  )
+              })      
+            }
+            
+          
         </section>
+        <div className="separator relative mt-5 " >
+            <div className="absolute inset-0 flex items-center " >
+                <span className="w-full border-t border-black"></span>
+            </div>
+            <div className="relative flex justify-center text-xs uppercase " >
+                <span className="bg-white dark:bg-white text-sm px-2 font-semibold text-black">You are at the end of the page</span>
+            </div>
+        </div>
     </motion.div>
   )
 }
