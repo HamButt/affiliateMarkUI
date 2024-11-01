@@ -39,7 +39,7 @@ function Section({data}) {
                           <p className="text-sm mt-2 font-bold text-black dark:text-black">{d?.deliveryCharges}</p>
                           <div className="flex items-center justify-between mt-2">
                               <p className="text-sm font-bold text-black dark:text-black">Price: PKR {d?.price}</p>
-                              <Link to={d.link} className="font-semibold text-center text-sm bg-black text-white rounded transition duration-200 p-2 w-28">
+                              <Link target='_blank' to={d.link} className="font-semibold text-center text-sm bg-black text-white rounded transition duration-200 p-2 w-28">
                               Buy Now 
                             </Link>
                           </div>
