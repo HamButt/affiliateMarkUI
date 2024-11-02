@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Image } from 'primereact/image';
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 import W1 from '../src/assests/watches/S16af9460da42419e8c0d09891e9c0830E.jpg'
 import W2 from '../src/assests/watches/S3c75e50ac5cc49adad99203b518da7bep.jpg'
 import W3 from '../src/assests/watches/S9acac7d3d8844d90b5f003678377e36bN.jpg'
@@ -11,6 +12,19 @@ import W6 from '../src/assests/watches/Se43e57415ddc435786578f0cf8aeb28cs.jpg'
 const images = [W1, W2, W3, W4, W5, W6]
 
 export default function Watches() {
+
+    useEffect(()=>{
+        updateUser()
+      }, [])
+    
+    
+    const updateUser = async () => {
+        try {
+          await axios.post(`${process.env.REACT_APP_BASE_URL}/increment-watches/672627a88ebfd9184a936376`)
+    } catch (error) {
+          console.log(error);
+    }}
+
   return (
 
     <section >

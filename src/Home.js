@@ -156,7 +156,7 @@ function App() {
   const updateUser = async () => {
     try {
       
-      await axios.post(`${process.env.REACT_APP_BASE_URL}/increment`)
+      await axios.post(`${process.env.REACT_APP_BASE_URL}/increment/6723616d8fc397de8ebd883e`)
     } catch (error) {
       console.log(error);
       

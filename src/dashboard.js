@@ -2,8 +2,7 @@ import React , {useEffect, useState} from 'react'
 import axios from 'axios'
 
 function Dashboard() {
-const [date, setDate] = useState(null)
-const [count, setCount] = useState(null)
+const [data, setData] = useState([])
 
     useEffect(()=>{
         getUser()
@@ -14,12 +13,7 @@ const [count, setCount] = useState(null)
         try {
           
           const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/user`)
-            const date = new Date(res?.data?.user[0]?.recentUserReachedAt);
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            const userRachedDate = date.toLocaleTimeString('en-US', options);
-            setDate(userRachedDate)
-            setCount(res?.data?.user[0]?.totalUsers)
-            
+            setData(res.data.user)
         } catch (error) {
           console.log(error);
           
@@ -27,7 +21,20 @@ const [count, setCount] = useState(null)
           
       }
   return (
-    <div>total Users {count} | Reacent user {date} </div>
+    <div>{
+      data.map((user, index) => {
+            const date = new Date(user.recentUserReachedAt);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const userRachedDate = date.toLocaleTimeString('en-US', options);
+        return (
+          <div key={user._id} className='flex items-center justify-center text-start mt-6 flex-col' >
+            <p className='text-2xl font-semibold' >Last user : {userRachedDate}</p>
+            <p className='text-2xl font-semibold' > Page: {user.page ? user.page : "Not yet" }</p>
+            <p className='text-2xl font-semibold' >total users: {user.totalUsers}</p>
+          </div>
+        )
+      })
+    } </div>
   )
 }
 
