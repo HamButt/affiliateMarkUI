@@ -5,14 +5,14 @@ import Swiper from './components/Swiper';
 
 
 
-function Baby() {
+function Hoodies() {
   
 
   return (
     <div className="App">
     
     <Helmet>
-        <title>Baby collection</title>
+        <title>Hoodies</title>
     </Helmet>
 
     <section>
@@ -27,4 +27,4 @@ function Baby() {
   )
 }
 
-export default Baby
+export default Hoodies

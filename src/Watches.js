@@ -34,13 +34,19 @@ export default function Watches() {
     
         <div className="flex flex-col sm:flex-row items-start bg-white dark:bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300">
 
-                <div className=" gap-2 p-4">
+                <div className="p-4 w-1/2 flex items-center justify-center">
+                    {images[3] ? 
                     <Image 
                         src={images[3]} 
                         alt="Product Image" 
                         preview
                         className="rounded w-full object-contain " 
-                    />
+                    /> : 
+                    <div className='flex flex-col items-center mt-5' >
+                        <span className='loading loading-spinner loading-lg' ></span>
+                        <span className='font-semibold mt-2'>Loading image</span>
+                    </div>
+                    }
                 </div>
 
             <div className=" w-full p-4">
