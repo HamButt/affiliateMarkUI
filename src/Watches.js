@@ -36,7 +36,7 @@ export default function Watches() {
 
                 <div className=" gap-2 p-4">
                     <Image 
-                        src={images[0]} 
+                        src={images[3]} 
                         alt="Product Image" 
                         preview
                         className="rounded w-full object-contain " 
@@ -58,7 +58,7 @@ export default function Watches() {
                 <small className='font-semibold' >Click image to view details clearly</small>
                 <div className='mt-8 w-full' >
 
-                    <Link href="https://s.click.aliexpress.com/e/_ExnvLdb" target="_blank" rel="noopener noreferrer"
+                    <Link to="https://s.click.aliexpress.com/e/_ExnvLdb" target="_blank"
                         className="text-center text-xl bg-black text-white rounded transition duration-200 px-4 py-3 w-56">
                         Buy Now
                     </Link>
