@@ -13,12 +13,8 @@ const images = [W1, W2, W3, W4, W5, W6]
 
 export default function Watches() {
 
-    useEffect(()=>{
-        updateUser()
-      }, [])
     
-    
-    const updateUser = async () => {
+    const increaseCount = async () => {
         try {
           await axios.post(`${process.env.REACT_APP_BASE_URL}/increment-watches/672627a88ebfd9184a936376`)
     } catch (error) {
@@ -62,7 +58,7 @@ export default function Watches() {
                 <p className='text-lg font-bold text-black line-through'>Before: PKR 8,322 </p>
                 <p className="text-lg font-bold text-black">Now: PKR 4,328 </p>
                 <small className='font-semibold' >Click image to view details clearly</small>
-                <div className='mt-8 w-full' >
+                <div className='mt-8 w-full' onClick={increaseCount}>
 
                     <Link to="https://s.click.aliexpress.com/e/_ExnvLdb" target="_blank"
                         className="text-center text-xl bg-black text-white rounded transition duration-200 px-4 py-3 w-56">
