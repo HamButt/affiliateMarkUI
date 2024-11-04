@@ -14,8 +14,6 @@ const [totalCLicks, setSetTotalCLicks] = useState(null)
         try {
           
           const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/user`)
-          console.log(res);
-          
           const date = new Date(res?.data?.user[0]?.lastClickedAt);
           const options = { year: 'numeric', month: 'long', day: 'numeric' };
           const userRachedDate = date.toLocaleTimeString('en-US', options);

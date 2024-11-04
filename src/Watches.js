@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react'
+import React  from 'react'
 import { Image } from 'primereact/image';
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import { Helmet } from 'react-helmet';
 import W1 from '../src/assests/watches/S16af9460da42419e8c0d09891e9c0830E.jpg'
 import W2 from '../src/assests/watches/S3c75e50ac5cc49adad99203b518da7bep.jpg'
 import W3 from '../src/assests/watches/S9acac7d3d8844d90b5f003678377e36bN.jpg'
@@ -23,7 +24,11 @@ export default function Watches() {
 
   return (
 
+
     <section >
+            <Helmet>
+                <title>Affiliate Products</title>
+            </Helmet>
     <div className="flex flex-wrap justify-center sm:justify-between p-4 bg-gray-100 dark:bg-gray-100" >
         <p className="text-lg sm:text-4xl py-2 font-bold text-black">Premium watch 48% OFF Hurry up!!!</p>
         <p className="text-lg sm:text-4xl py-2 font-bold text-black italic">Super Deal</p>

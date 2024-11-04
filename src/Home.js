@@ -1,9 +1,8 @@
 import './App.css';
 import { Helmet } from 'react-helmet';
-import React, { useEffect } from 'react'
+import React from 'react'
 import Section from './components/Section';
 import { bagImages, feederImages, feeder2Images, jacketImages, pajamaImages} from './components/images'
-import axios from 'axios'
 import Header from './components/Header';
 import OberniFeeder from '../src/assests/feeder.jpg'
 import Romper from '../src/assests/romper.jpg'
@@ -153,7 +152,7 @@ function App() {
     <div className="App bg-white dark:bg-white">
     
     <Helmet>
-        <title>Affiliate Products</title>
+        <title>Affiliate guy</title>
     </Helmet>
 
     <Header/>
